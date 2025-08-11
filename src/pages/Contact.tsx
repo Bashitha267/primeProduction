@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import { Clock, Mail, MapPin, Phone, Send } from 'lucide-react';
 import React, { useState } from 'react';
@@ -20,45 +21,36 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    alert('Thank you for your message! We\'ll get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
+
+    emailjs.sendForm(
+      'service_ltm3dpc',       // Replace with your EmailJS Service ID
+      'template_y76232o',      // Replace with your EmailJS Template ID
+      e.currentTarget,
+      'zOPioF_8aCQWiQDvK'        // Replace with your EmailJS Public Key (User ID)
+    )
+    .then(() => {
+      alert("Thank you for contacting Prime Production! Our team will get back to you shortly.");
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+      setIsSubmitting(false);
+    })
+    .catch((error) => {
+      alert("Oops! Something went wrong. Please try again.");
+      console.error("EmailJS error:", error);
+      setIsSubmitting(false);
     });
-    setIsSubmitting(false);
   };
 
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      {/* <section className="bg-gradient-to-r from-red-600 to-pink-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Get In Touch
-            </h1>
-            <p className="text-xl md:text-2xl text-red-100 max-w-3xl mx-auto">
-              Ready to start your project? We'd love to hear from you and discuss how we can bring your vision to life
-            </p>
-          </motion.div>
-        </div>
-      </section> */}
-
       {/* Contact Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,7 +71,7 @@ const Contact = () => {
               </p>
 
               <div className="space-y-8">
-                {[
+                {[  
                   {
                     icon: Phone,
                     title: 'Phone',
