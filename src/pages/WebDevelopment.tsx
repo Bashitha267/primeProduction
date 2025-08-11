@@ -15,10 +15,12 @@ const WebDevelopment = () => {
         'SEO Optimization',
         '30 Days Support',
         'Mobile Friendly',
-        'Upto 5 revisions'
+        'Upto 5 revisions',
+        'Domain and one year free Hostinger hosting included',
+        
       ],
       popular: "starter",
-      uses:"Personal portfolios,small businesses and static informational sites"
+      uses:"Perfect for personal portfolios, boutique businesses, and sleek, static informational websites."
     },
     {
       name: 'Prime Nexus',
@@ -32,11 +34,11 @@ const WebDevelopment = () => {
         'Advanced SEO',
         '6 months Support',
         'Upto 10 revisions',
-        'Domain and 2 year free Hosting included',
+        'Domain and 2 year free Hostinger hosting included',
         'User login & registration'
       ],
       popular: "popular",
-      uses:"Online stores,service providers and business needing customer interaction"
+      uses:"Ideal for vibrant online stores, dynamic service providers, and businesses focused on engaging customer experiences."
     },
     {
       name: 'Prime Apexium',
@@ -54,7 +56,7 @@ const WebDevelopment = () => {
         'Advanced SEO strategy',
       ],
       popular: "pro",
-      uses:"Large business,e-commerce brands and high scale service providers"
+      uses:"Designed for large enterprises, leading e-commerce brands, and high-scale service providers demanding robust solutions."
     }
   ];
 
