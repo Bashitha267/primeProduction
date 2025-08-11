@@ -16,7 +16,7 @@ const WebDevelopment = () => {
         'Mobile Friendly',
         'Upto 5 revisions'
       ],
-      popular: false,
+      popular: "starter",
       uses:"Personal portfolios,small businesses and static informational sites"
     },
     {
@@ -34,7 +34,7 @@ const WebDevelopment = () => {
         'Domain and 2 year free Hosting included',
         'User login & registration'
       ],
-      popular: true,
+      popular: "popular",
       uses:"Online stores,service providers and business needing customer interaction"
     },
     {
@@ -52,7 +52,7 @@ const WebDevelopment = () => {
         'Training Included',
         'Advanced SEO strategy',
       ],
-      popular: false,
+      popular: "pro",
       uses:"Large business,e-commerce brands and high scale service providers"
 
     }
@@ -189,19 +189,37 @@ const WebDevelopment = () => {
                 transition={{ delay: index * 0.2, duration: 0.8 }}
                 viewport={{ once: true }}
                 className={`bg-white rounded-2xl shadow-lg p-8 relative ${
-                  pkg.popular ? 'border-2 border-red-600 transform scale-105' : ''
+                  pkg.popular==="popular" ? 'border-2 border-[#B8860B] transform scale-105' : ''
+                }  ${
+                  pkg.popular==="pro" ? 'border-2 border-purple-600 transform scale-105' : ''
+                }
+                 ${
+                  pkg.popular==="starter" ? 'border-2 border-gray-600 transform scale-105' : ''
                 }`}
-              >
-                {pkg.popular && (
+              > {pkg.popular==="starter" && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-gray-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                      Starter
+                    </span>
+                  </div>
+                )}
+                {pkg.popular==="popular" && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-[#B8860B] text-white px-4 py-1 rounded-full text-sm font-semibold">
                       Most Popular
                     </span>
                   </div>
                 )}
+                   {pkg.popular==="pro" && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-purple-800 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                      Most Professional
+                    </span>
+                  </div>
+                )}
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name.slice(0,5)}<span style={{color:`${pkg.color}`}}>{pkg.name.slice(5)}</span></h3>
-                  <div className="text-4xl font-bold text-red-600 mb-4">{pkg.price}</div>
+                  <h3 className="text-4xl font-bold text-gray-900 mb-4 ">{pkg.name.slice(0,5)}<span style={{color:`${pkg.color}`}}>{pkg.name.slice(5)}</span></h3>
+                  <div className={`text-3xl font-bold  mb-4 ${pkg.popular==="pro"?"text-purple-800":""} ${pkg.popular==="starter"?"text-gray-600":""} ${pkg.popular==="popular"?"text-[#B8860B]":""}`}>{pkg.price}</div>
                 </div>
                
                 <ul className="space-y-3 mb-8 h-80 max-h-80">
@@ -214,10 +232,20 @@ const WebDevelopment = () => {
                 </ul>
                  <div className='text-center text-md  text-black mb-4 mt-4'>{pkg.uses}</div>
                 <button className={`w-full py-3 rounded-lg font-semibold transition-colors ${
-                  pkg.popular 
-                    ? 'bg-red-600 text-white hover:bg-red-700' 
+                  pkg.popular==="popular" 
+                    ? 'bg-[#B8860B] text-white hover:bg-[#9a7005]' 
                     : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                }`}>
+                } ${
+                  pkg.popular==="pro" 
+                    ? 'bg-purple-600 text-white hover:bg-purple-700' 
+                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                }
+                ${
+                  pkg.popular==="starter" 
+                    ? 'bg-gray-600 text-white hover:bg-gray-700' 
+                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                }`
+                }>
                   Get Started
                 </button>
                 
