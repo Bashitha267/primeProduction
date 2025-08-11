@@ -40,7 +40,7 @@ const WebDevelopment = () => {
     {
       name: 'Prime Apexium',
       price: 'Rs 70 000',
-      color:'#0F4C75',
+      color:'#6B21A8',
       features: [
         'Everything in Nexus',
         'Upto 15 pages',
