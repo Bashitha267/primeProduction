@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Code, Smartphone, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const WebDevelopment = () => {
   const packages = [
@@ -222,7 +223,7 @@ const WebDevelopment = () => {
                   </ul>
 
                   <div className='text-center text-md text-black mb-4 mt-4'>{pkg.uses}</div>
-
+                  <Link to="/contact">
                   <button className={`w-full py-3 rounded-lg font-semibold transition-colors ${
                     pkg.popular === "popular" 
                       ? 'bg-[#B8860B] text-white hover:bg-[#9a7005]' 
@@ -233,7 +234,8 @@ const WebDevelopment = () => {
                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                   }`}>
                     Get Started
-                  </button>
+                  </button></Link>
+                  
                 </motion.div>
               )
             })}

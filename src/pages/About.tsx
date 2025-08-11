@@ -7,7 +7,7 @@ const About = () => {
     name: 'Shemith Rashinka',
     role: 'Founder & Creative Director',
     image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
-    bio: 'Undergraduatein Science University of Ruhuna.'
+    bio: 'Undergraduate in Science University of Ruhuna.'
   },
   {
     name: 'Desiri Munathunga',

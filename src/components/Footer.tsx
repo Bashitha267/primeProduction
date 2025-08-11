@@ -1,5 +1,5 @@
-import React from 'react';
-import { Camera, Mail, Phone, MapPin, Facebook, Twitter, Instagram } from 'lucide-react';
+import { Camera, Facebook, Instagram, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -36,9 +36,9 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li><a href="/events" className="text-gray-400 hover:text-red-600 transition-colors">Event Coverage</a></li>
-              <li><a href="/web-development" className="text-gray-400 hover:text-red-600 transition-colors">Web Development</a></li>
-              <li><a href="/graphic-design" className="text-gray-400 hover:text-red-600 transition-colors">Graphic Design</a></li>
+              <li><Link to="/events" className="text-gray-400 hover:text-red-600 transition-colors">Event Coverage</Link></li>
+              <li><Link to="/web-development" className="text-gray-400 hover:text-red-600 transition-colors">Web Development</Link></li>
+              <li><Link to="/graphic-design" className="text-gray-400 hover:text-red-600 transition-colors">Graphic Design</Link></li>
             </ul>
           </div>
 
