@@ -234,13 +234,13 @@ const WebDevelopment = () => {
                 <button className={`w-full py-3 rounded-lg font-semibold transition-colors ${
                   pkg.popular==="popular" 
                     ? 'bg-[#B8860B] text-white hover:bg-[#9a7005]' 
-                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                } ${
+                    : 
+                
                   pkg.popular==="pro" 
-                    ? 'bg-purple-600 text-white hover:bg-purple-700' 
-                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                }
-                ${
+                    ? 'bg-purple-600 text-white hover:bg-purple-700' :
+                    
+                
+               
                   pkg.popular==="starter" 
                     ? 'bg-gray-600 text-white hover:bg-gray-700' 
                     : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
