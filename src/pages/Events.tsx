@@ -1,40 +1,111 @@
 import { motion } from 'framer-motion';
-import { Calendar, Heart, MoreHorizontal, Users, Video, X } from 'lucide-react';
+import { Calendar, MoreHorizontal, Users, X } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Events = () => {
 const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   console.log(selectedGallery)
-  const eventCategories = [
-        {
-      id: 'live',
-      title: 'Live Streaming',
-      icon: <Video className="h-8 w-8" />,
-      description: 'Professional documentation of business events and conferences',
-      images: [
-        'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1181403/pexels-photo-1181403.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'
-      ]
+  const packages = [
+    {
+  name: 'Prime Spark',
+  price: 'Rs 9000',
+  color: '#555555', 
+  features: [
+    'Coverage up to 4 hours',
+    'Up to 100 professional shots',
+    'High-quality photo editing included',
+    'Edited photos delivered within 5–6 days',
+    'Short recap video of your event',
+    'Cinematic color grading applied',
+    'High-resolution photos for print and digital',
+    'Secure online digital album access'
+  ],
+  popular: "basic",
+  uses: "Perfect for capturing birthdays, graduations, family gatherings, baby showers, anniversaries, engagements, small corporate events, cultural celebrations."
+},
+    {
+      name: 'Prime Lumina',
+      price: 'Rs 15 000',
+      color:'#1E90FF',
+      features: [
+        'Coverage up to 6 hours',
+        'Up to 200 professional shots',
+        'Professional lighting system included',
+        'Short recap video of your event',
+        'Edited photos delivered within 7 days',
+        'Secure online digital album access',
+        'Captures candid and posed moments',
+        
+        
+      ],
+      popular: "starter",
+      uses:"Ideal for anniversaries, corporate events, graduations, family gatherings, milestone celebrations, cultural festivals, product launches, and similar medium-sized events."
     },
     {
-      id: 'weddings',
-      title: 'Wedding Ceremonies',
-      icon: <Heart className="h-8 w-8" />,
-      description: 'Capturing the magic of your special day with timeless elegance',
-      images: [
-        'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1488315/pexels-photo-1488315.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'
-      ]
+      name: 'Prime Nexus',
+      price: 'Rs 25 000',
+      color:'#B8860B',
+      features: [
+        'Coverage up to 8 hours',
+        'Up to 400 professional shots',
+        'Professional lighting system included',
+        'Short recap video of your event',
+        'Edited photos delivered within 10 days',
+        'High-resolution photos for print and digital',
+        
+        
+      ],
+      popular: "popular",
+      uses:"Ideal for large corporate events, conferences, milestone celebrations, exhibitions, cultural festivals, and other full-day occasions."
     },
+    {
+      name: 'Prime Apexium',
+      price: 'Rs 40 000',
+      color:'#6B21A8',
+      features: [
+        'Unlimited coverage hours',
+        'Unlimited professional shots',
+        'Professional lighting system included',
+        'Fast delivery with priority editing',
+        'Short recap and full event videos provided',
+        'High-resolution photos optimized for print and digital',
+       
+      ],
+      popular: "pro",
+      uses:"Ideal for grand parties, multi-day festivals, large corporate events, high-profile launches, and any event requiring unlimited, top-tier coverage and quality."
+    }
+  ];
+  const eventCategories = [
+    //     {
+    //   id: 'live',
+    //   title: 'Live Streaming',
+    //   icon: <Video className="h-8 w-8" />,
+    //   description: 'Professional documentation of business events and conferences',
+    //   images: [
+    //     'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    //     'https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    //     'https://images.pexels.com/photos/1181403/pexels-photo-1181403.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    //     'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    //     'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    //     'https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'
+    //   ]
+    // },
+    // {
+    //   id: 'weddings',
+    //   title: 'Wedding Ceremonies',
+    //   icon: <Heart className="h-8 w-8" />,
+    //   description: 'Capturing the magic of your special day with timeless elegance',
+    //   images: [
+    //     'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    //     'https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    //     'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    //     'https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    //     'https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    //     'https://images.pexels.com/photos/1488315/pexels-photo-1488315.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'
+    //   ]
+    // },
 
     {
       id: 'birthday',
@@ -183,6 +254,128 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
           </motion.div>
         </motion.div>
       )}
+            <section className="py-20 bg-gray-50">
+        <div className="max-w-8xl px-4 sm:px-6 lg:px-8 mx-7  ">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Choose Your Perfect Package
+            </h2>
+            <p className="text-xl text-gray-600">
+              Tailored solutions for every business size and budget
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            {packages.map((pkg, index) => {
+              // Calculate discount and new price
+              // const originalPriceNum = parsePrice(pkg.price);
+              // const discountAmount = 4500; // fixed discount between 4000-5000
+              // const discountedPriceNum = originalPriceNum - discountAmount;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2, duration: 0.8 }}
+                  viewport={{ once: true }}
+                  className={`bg-white rounded-2xl shadow-lg p-8 relative  mb-4 mt-4   ${
+                    pkg.popular === "popular" ? 'border-2 border-[#B8860B] transform scale-105' : ''
+                  } ${
+                    pkg.popular === "pro" ? 'border-2 border-purple-600 transform scale-105' : ''
+                  } ${
+                    pkg.popular === "starter" ? 'border-2  border-[#1E90FF] transform scale-105' : ''
+                  }
+                  ${
+                    pkg.popular === "basic" ? 'border-2 border-gray-600 transform scale-105' : ''
+                  }`}  
+                >
+                  {pkg.popular === "basic" && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-gray-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Basic
+                      </span>
+                    </div>
+                  )}
+                  {pkg.popular === "starter" && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-[#1E90FF] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Starter
+                      </span>
+                    </div>
+                  )}
+                  {pkg.popular === "popular" && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-[#B8860B] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+                  {pkg.popular === "pro" && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-purple-800 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                       Professional
+                      </span>
+                    </div>
+                  )}
+                  <div className="text-center mb-8">
+                    <h3 className="text-4xl font-bold text-gray-900 mb-4 ">
+                      {pkg.name.slice(0,5)}
+                      <span style={{color:`${pkg.color}`}}>{pkg.name.slice(5)}</span>
+                    </h3>
+                    <div className={`text-3xl font-bold mb-4 flex flex-col ${
+                      pkg.popular === "pro" ? "text-purple-800" :
+                      pkg.popular === "starter" ? "text-[#1E90FF]" :
+                      pkg.popular === "popular" ? "text-[#B8860B]" : 
+                      pkg.popular === "popular" ? "text-gray-600" : ""
+                      
+                    }`}>
+                      {/* Original price struck through */}
+                      <span className="  text-gray-400">
+                        Rs {pkg.price}
+                      </span>
+                      {/* Discounted price highlighted */}
+                      {/* <span className="text-red-600 font-bold">
+                        Rs {formatPrice(discountedPriceNum)}
+                      </span> */}
+                    </div>
+                  </div>
+
+                  <ul className="space-y-3 mb-10 h-80 max-h-80 ">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center space-x-3 ">
+                        <div className="w-2 h-2 bg-red-600 rounded-full" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className='text-center text-md text-black  mt-8 mb-4'>{pkg.uses}</div>
+                  <Link to="/contact">
+                  <button className={`w-full py-3 rounded-lg font-semibold transition-colors ${
+                    pkg.popular === "popular" 
+                      ? 'bg-[#B8860B] text-white hover:bg-[#9a7005]' 
+                      : pkg.popular === "pro" 
+                      ? 'bg-purple-600 text-white hover:bg-purple-700' :
+                      pkg.popular === "starter" 
+                      ? 'bg-[#1E90FF] text-white hover:bg-[#095fb5]' 
+                      : 'bg-gray-600 text-white  hover:bg-gray-700'
+                  }`}>
+                    Get Started
+                  </button></Link>
+                  
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

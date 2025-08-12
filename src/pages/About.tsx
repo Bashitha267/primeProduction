@@ -24,7 +24,7 @@ const About = () => {
   {
     name: 'Nimesh Bashitha',
     role: 'Senior Graphic Designer',
-    image: 'https://images.pexels.com/photos/2182973/pexels-photo-2182973.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://res.cloudinary.com/dnfbik3if/image/upload/v1755008561/WhatsApp_Image_2025-08-12_at_19.52.14_70220e9b_sx5fws.jpg',
     bio: 'Undergraduate in Computer Science University of Jaffna'
   }
 ];
