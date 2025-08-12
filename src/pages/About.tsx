@@ -7,24 +7,24 @@ const About = () => {
     name: 'Shemith Rashinka',
     role: 'Founder & Creative Director',
     image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
-    bio: 'Undergraduate in Science University of Ruhuna.'
+    bio: 'Undergraduate in Biological Science University of Ruhuna.'
   },
   {
-    name: 'Desiri Munathunga',
-    role: 'Marketing Manager',
-    image: 'https://res.cloudinary.com/dnfbik3if/image/upload/v1755011218/desiri_fpxtsm.png',
-    bio: 'Undergraduate in Visual Arts and Marketing'
+    name: 'Desiri Manathunga',
+    role: 'Digital media marketing manager  ',
+    image: 'https://res.cloudinary.com/dnfbik3if/image/upload/v1755012255/desiri_ljkdzd.png',
+    bio: 'Founder and Designer at dm FOLIO Creations'
   },
   {
     name: 'Tharindu Malshan',
-    role: 'Head of Web Development',
+    role: 'Head of Web Design & Development ',
     image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400',
     bio: 'Undergraduate in Engineering NDT Moratuwa'
   },
   {
     name: 'Nimesh Bashitha',
-    role: 'Senior Graphic Designer',
-    image: 'https://res.cloudinary.com/dnfbik3if/image/upload/v1755008561/WhatsApp_Image_2025-08-12_at_19.52.14_70220e9b_sx5fws.jpg',
+    role: 'Head of Graphic Design and Visual Media Production',
+    image: 'https://res.cloudinary.com/dnfbik3if/image/upload/v1755012218/WhatsApp_Image_2025-08-12_at_19.52.14_70220e9b_rr8l4g.jpg',
     bio: 'Undergraduate in Computer Science University of Jaffna'
   }
 ];
