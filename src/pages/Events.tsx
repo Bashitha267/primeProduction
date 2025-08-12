@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Calendar, Heart, Users, Video, X } from 'lucide-react';
+import { Calendar, Heart, MoreHorizontal, Users, Video, X } from 'lucide-react';
 import { useState } from 'react';
 
 const Events = () => {
@@ -52,9 +52,23 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
     },
     {
       id: 'social',
-      title: 'Conference',
+      title: 'Conferences & Exhibitions',
       icon: <Users className="h-8 w-8" />,
-      description: 'Candid moments of connection and celebration with loved ones',
+      description: 'Showcasing innovations, fostering connections, and inspiring growth through impactful gatherings.',
+      images: [
+        'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1308881/pexels-photo-1308881.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'
+      ]
+    },
+    {
+      id: 'other',
+      title: 'Other Events',
+      icon: <MoreHorizontal className="h-8 w-8" />,
+      description: 'Celebrating unique occasions with elegance, creativity, and unforgettable experiences.',
       images: [
         'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
         'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
@@ -67,7 +81,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
   ];
 
   return (
-    <div className="min-h-screen bg-white pt-10">
+    <div className="min-h-screen bg-white pt-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
