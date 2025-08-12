@@ -10,7 +10,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
   const packages = [
     {
   name: 'Prime Spark',
-  price: 'Rs 9000',
+  price: '9000',
   color: '#555555', 
   features: [
     'Coverage up to 4 hours',
@@ -27,7 +27,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
 },
     {
       name: 'Prime Lumina',
-      price: 'Rs 15 000',
+      price: '15 000',
       color:'#1E90FF',
       features: [
         'Coverage up to 6 hours',
@@ -45,7 +45,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
     },
     {
       name: 'Prime Nexus',
-      price: 'Rs 25 000',
+      price: '25 000',
       color:'#B8860B',
       features: [
         'Coverage up to 8 hours',
@@ -62,7 +62,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
     },
     {
       name: 'Prime Apexium',
-      price: 'Rs 40 000',
+      price: '40 000',
       color:'#6B21A8',
       features: [
         'Unlimited coverage hours',
