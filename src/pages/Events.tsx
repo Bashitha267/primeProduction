@@ -1,263 +1,174 @@
 import { motion } from 'framer-motion';
-import { Award, Calendar, Camera, Users } from 'lucide-react';
+import { Calendar, Heart, Users, Video, X } from 'lucide-react';
 import { useState } from 'react';
 
 const Events = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const eventCategories = [
-    { id: 'all', name: 'All Events' },
-    { id: 'corporate', name: 'Corporate' },
-    { id: 'wedding', name: 'Weddings' },
-    { id: 'conference', name: 'Conferences' },
-    { id: 'party', name: 'Parties' }
-  ];
+        {
+      id: 'live',
+      title: 'Live Streaming',
+      icon: <Video className="h-8 w-8" />,
+      description: 'Professional documentation of business events and conferences',
+      images: [
+        'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1181403/pexels-photo-1181403.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'
+      ]
+    },
+    {
+      id: 'weddings',
+      title: 'Wedding Ceremonies',
+      icon: <Heart className="h-8 w-8" />,
+      description: 'Capturing the magic of your special day with timeless elegance',
+      images: [
+        'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1488315/pexels-photo-1488315.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'
+      ]
+    },
 
-  const events = [
     {
-      id: 1,
-      title: 'Tech Conference 2024',
-      category: 'conference',
-      date: 'March 15, 2024',
-      attendees: 500,
-      image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Annual technology conference with industry leaders and innovators.'
+      id: 'birthday',
+      title: 'Birthday Celebrations',
+      icon: <Calendar className="h-8 w-8" />,
+      description: 'Joyful moments and precious memories of life\'s milestones',
+      images: [
+        'https://images.pexels.com/photos/1729808/pexels-photo-1729808.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1857157/pexels-photo-1857157.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1543762/pexels-photo-1543762.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1684032/pexels-photo-1684032.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'
+      ]
     },
     {
-      id: 2,
-      title: 'Corporate Annual Gala',
-      category: 'corporate',
-      date: 'February 28, 2024',
-      attendees: 300,
-      image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Elegant corporate gala celebrating company achievements.'
-    },
-    {
-      id: 3,
-      title: 'Sarah & Mike Wedding',
-      category: 'wedding',
-      date: 'January 20, 2024',
-      attendees: 150,
-      image: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Beautiful outdoor wedding ceremony and reception.'
-    },
-    {
-      id: 4,
-      title: 'Product Launch Event',
-      category: 'corporate',
-      date: 'December 10, 2023',
-      attendees: 200,
-      image: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Exciting product launch with live demonstrations and networking.'
-    },
-    {
-      id: 5,
-      title: 'Birthday Celebration',
-      category: 'party',
-      date: 'November 25, 2023',
-      attendees: 80,
-      image: 'https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Milestone birthday celebration with family and friends.'
-    },
-    {
-      id: 6,
-      title: 'Business Summit',
-      category: 'conference',
-      date: 'October 15, 2023',
-      attendees: 400,
-      image: 'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'International business summit with keynote speakers.'
+      id: 'social',
+      title: 'Conference',
+      icon: <Users className="h-8 w-8" />,
+      description: 'Candid moments of connection and celebration with loved ones',
+      images: [
+        'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1308881/pexels-photo-1308881.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/3184430/pexels-photo-3184430.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'
+      ]
     }
   ];
 
-  const filteredEvents = selectedCategory === 'all' 
-    ? events 
-    : events.filter(event => event.category === selectedCategory);
-
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      {/* <section className="bg-gradient-to-r from-red-600 to-red-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Event Coverage
-              <span className="block text-red-200">Excellence</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-red-100 max-w-3xl mx-auto">
-              Capturing your most important moments with professional photography and videography services
-            </p>
-          </motion.div>
-        </div>
-      </section> */}
+    <div className="min-h-screen bg-white pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold  mb-6  text-black" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Event <span className="  text-black">Coverage</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            We specialize in capturing the essence and emotion of your special moments. From intimate gatherings 
+            to grand celebrations, our professional photography and videography services ensure that every 
+            precious memory is preserved with artistic excellence and attention to detail.
+          </p>
+        </motion.div>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { icon: Camera, number: '500+', label: 'Events Covered' },
-              { icon: Users, number: '50K+', label: 'Happy Attendees' },
-              { icon: Calendar, number: '5', label: 'Years Experience' },
-              { icon: Award, number: '25+', label: 'Awards Won' }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.8 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="bg-red-50 p-4 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-                  <stat.icon className="h-10 w-10 text-red-600" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Events Gallery */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our Event Gallery
-            </h2>
-            <p className="text-xl text-gray-600">
-              Browse through our recent event coverage and memorable moments
-            </p>
-          </motion.div>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {eventCategories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all ${
-                  selectedCategory === category.id
-                    ? 'bg-red-600 text-white'
-                    : 'bg-white text-gray-700 hover:bg-red-50 hover:text-red-600'
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Events Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredEvents.map((event, index) => (
-              <motion.div
-                key={event.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-medium capitalize">
-                      {event.category}
-                    </span>
-                    <span className="text-gray-500 text-sm">{event.date}</span>
+        <div className="space-y-16">
+          {eventCategories.map((category, index) => (
+            <motion.div
+              key={category.id}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className={`flex flex-col lg:flex-row items-center gap-12 ${
+                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+              }`}
+            >
+              <div className="flex-1">
+                <div className="flex items-center mb-6">
+                  <div className="p-3  bg-red-500 rounded-lg text-white mr-4">
+                    {category.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
-                  <p className="text-gray-600 mb-4">{event.description}</p>
-                  <div className="flex items-center text-gray-500 text-sm">
-                    <Users className="h-4 w-4 mr-1" />
-                    <span>{event.attendees} attendees</span>
-                  </div>
+                  <h2 className="text-3xl font-bold text-black">{category.title}</h2>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              What We Offer
-            </h2>
-            <p className="text-xl text-gray-600">
-              Comprehensive event coverage services tailored to your needs
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Photography',
-                description: 'Professional high-quality photography capturing every important moment',
-                features: ['High-resolution images', 'Same-day previews', 'Online gallery', 'Print packages']
-              },
-              {
-                title: 'Videography',
-                description: 'Cinematic video coverage with professional editing and production',
-                features: ['4K video quality', 'Drone footage', 'Highlight reels', 'Full event recording']
-              },
-              {
-                title: 'Live Streaming',
-                description: 'Real-time streaming for remote attendees and social media',
-                features: ['Multi-platform streaming', 'Interactive chat', 'Recording included', 'Technical support']
-              }
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.8 }}
-                viewport={{ once: true }}
-                className="bg-gray-50 p-8 rounded-xl"
-              >
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-red-600 rounded-full" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
+                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                  {category.description}
+                </p>
+                <button
+                  onClick={() => setSelectedGallery(category.id)}
+                  className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  View Gallery
+                </button>
+              </div>
+              
+              <div className="flex-1">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {category.images.slice(0, 6).map((image, imgIndex) => (
+                    <motion.div
+                      key={imgIndex}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      whileHover={{ scale: 1.05 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: imgIndex * 0.1 }}
+                      className="relative overflow-hidden rounded-lg cursor-pointer"
+                      onClick={() => setSelectedImage(image)}
+                    >
+                      <img
+                        src={image}
+                        alt={`${category.title} ${imgIndex + 1}`}
+                        className="w-full h-32 object-cover transition-transform duration-300 hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                    </motion.div>
                   ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <motion.div
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            className="relative max-w-4xl max-h-full"
+          >
+            <img
+              src={selectedImage}
+              alt="Selected"
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
     </div>
   );
 };
