@@ -13,7 +13,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
   price: '9000',
   color: '#555555', 
   features: [
-    'Coverage up to 4 hours',
+    'Coverage up to 3 hours',
     'Up to 100 professional shots',
     'High-quality photo editing included',
     'Edited photos delivered within 5–6 days',
@@ -30,7 +30,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
       price: '15 000',
       color:'#1E90FF',
       features: [
-        'Coverage up to 6 hours',
+        'Coverage up to 4 hours',
         'Up to 200 professional shots',
         'Professional lighting system included',
         'Short recap video of your event',
@@ -48,7 +48,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
       price: '25 000',
       color:'#B8860B',
       features: [
-        'Coverage up to 8 hours',
+        'Coverage up to 6 hours',
         'Up to 400 professional shots',
         'Professional lighting system included',
         'Short recap video of your event',
@@ -337,7 +337,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
                       
                     }`}>
                       {/* Original price struck through */}
-                      <span className="  text-gray-400">
+                      <span className="  text-red-500">
                         Rs {pkg.price}
                       </span>
                       {/* Discounted price highlighted */}

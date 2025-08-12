@@ -12,8 +12,8 @@ const About = () => {
   {
     name: 'Desiri Munathunga',
     role: 'Marketing Manager',
-    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-    bio: 'Undergraduate in visual arts and marketing'
+    image: 'https://res.cloudinary.com/dnfbik3if/image/upload/v1755011218/desiri_fpxtsm.png',
+    bio: 'Undergraduate in Visual Arts and Marketing'
   },
   {
     name: 'Tharindu Malshan',
