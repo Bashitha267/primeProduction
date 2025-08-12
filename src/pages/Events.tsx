@@ -5,7 +5,7 @@ import { useState } from 'react';
 const Events = () => {
 const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
+  console.log(selectedGallery)
   const eventCategories = [
         {
       id: 'live',
@@ -67,7 +67,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
   ];
 
   return (
-    <div className="min-h-screen bg-white pt-20">
+    <div className="min-h-screen bg-white pt-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
