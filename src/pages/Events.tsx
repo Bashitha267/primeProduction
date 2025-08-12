@@ -267,7 +267,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
               Choose Your Perfect Package
             </h2>
             <p className="text-xl text-gray-600">
-              Tailored solutions for every business size and budget
+              Capturing every moment with tailored packages for every event size and budget
             </p>
           </motion.div>
 
