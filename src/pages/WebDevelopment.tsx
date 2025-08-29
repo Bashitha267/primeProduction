@@ -1,8 +1,34 @@
+import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Code, Smartphone, Zap } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+type Project={
+  title:string,
+  description:string,
+  url:string,
+  image:string,
+  technologies:string[]
+  
+}
 const WebDevelopment = () => {
+  const [projects,setProjects]=useState<Project[]>([])
+  useEffect(()=>{
+    const getprojects=async ()=>{
+      try{
+        const response = await axios.get("https://primexbackend.onrender.com/api/web/getwebsites");
+        // const data=await response.json()
+        if(response.data.success){
+          setProjects(response.data.websites)
+          console.log(response.data.success)
+        }
+
+      }catch(e){
+        console.log(e)
+      }
+    }
+    getprojects()
+  },[])
   const packages = [
     {
   name: 'Prime Spark',
@@ -80,26 +106,26 @@ const WebDevelopment = () => {
     }
   ];
 
-  const projects = [
-    {
-      title: 'E-commerce Platform',
-      description: 'Modern online store with payment integration',
-      image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600',
-      tech: ['React', 'Stripe', 'Node.js']
-    },
-    {
-      title: 'Corporate Website',
-      description: 'Professional business website with CMS',
-      image: 'https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=600',
-      tech: ['WordPress', 'PHP', 'MySQL']
-    },
-    {
-      title: 'SaaS Dashboard',
-      description: 'Complex data visualization platform',
-      image: 'https://images.pexels.com/photos/590016/pexels-photo-590016.jpg?auto=compress&cs=tinysrgb&w=600',
-      tech: ['Vue.js', 'D3.js', 'Python']
-    }
-  ];
+  // const projects = [
+  //   {
+  //     title: 'E-commerce Platform',
+  //     description: 'Modern online store with payment integration',
+  //     image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600',
+  //     tech: ['React', 'Stripe', 'Node.js']
+  //   },
+  //   {
+  //     title: 'Corporate Website',
+  //     description: 'Professional business website with CMS',
+  //     image: 'https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=600',
+  //     tech: ['WordPress', 'PHP', 'MySQL']
+  //   },
+  //   {
+  //     title: 'SaaS Dashboard',
+  //     description: 'Complex data visualization platform',
+  //     image: 'https://images.pexels.com/photos/590016/pexels-photo-590016.jpg?auto=compress&cs=tinysrgb&w=600',
+  //     tech: ['Vue.js', 'D3.js', 'Python']
+  //   }
+  // ];
 
   // Utility to convert price string to number (e.g., "Rs 35 000" -> 35000)
   const parsePrice = (priceStr:string) => {
@@ -112,7 +138,7 @@ const WebDevelopment = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-1">
       {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -296,14 +322,15 @@ const WebDevelopment = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
+            {projects.length>0&& projects.map((project, index) => (
+              <Link to={project.url} key={index}><motion.div
+                
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
                 viewport={{ once: true }}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                
               >
                 <img
                   src={project.image}
@@ -314,7 +341,7 @@ const WebDevelopment = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, idx) => (
+                    {project.technologies.map((tech, idx) => (
                       <span
                         key={idx}
                         className="bg-red-50 text-red-600 px-3 py-1 rounded-full text-sm font-medium"
@@ -324,7 +351,7 @@ const WebDevelopment = () => {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </motion.div></Link>
             ))}
           </div>
         </div>

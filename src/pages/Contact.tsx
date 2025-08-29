@@ -1,15 +1,15 @@
-import emailjs from '@emailjs/browser';
+import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Clock, Mail, MapPin, Phone, Send } from 'lucide-react';
 import React, { useState } from 'react';
-
+import Swal from "sweetalert2";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     service: '',
-    message: ''
+    projectDetails: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,36 +21,56 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    try{
+      const sendorder={
+      name:formData.name,
+      phone:formData.phone,
+      service:formData.service,
+      projectDetails:formData.projectDetails,
+      email:formData.email,
 
-    emailjs.sendForm(
-      'service_ltm3dpc',       // Replace with your EmailJS Service ID
-      'template_y76232o',      // Replace with your EmailJS Template ID
-      e.currentTarget,
-      'zOPioF_8aCQWiQDvK'        // Replace with your EmailJS Public Key (User ID)
-    )
-    .then(() => {
-      alert("Thank you for contacting Prime Production! Our team will get back to you shortly.");
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: ''
+    }
+    const response=await axios.post('https://primexbackend.onrender.com/api/orders/addorder',sendorder)
+    if(response.data.success==true){
+      // setIsSubmitting(false)
+       Swal.fire({
+        title: "Message Sent 🎉",
+        text: "Thank you for contacting us! We’ll get back to you soon.",
+        icon: "success",
+        confirmButtonColor: "#dc2626", 
       });
-      setIsSubmitting(false);
-    })
-    .catch((error) => {
-      alert("Oops! Something went wrong. Please try again.");
-      console.error("EmailJS error:", error);
-      setIsSubmitting(false);
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        projectDetails: "",
+      });
+    }
+    }
+    catch(e){
+      console.log(e)
+      console.log(e);
+    Swal.fire({
+      title: "Oops!",
+      text: "Something went wrong. Please try again.",
+      icon: "error",
+      confirmButtonColor: "#dc2626",
     });
+    }
+    finally{
+      setIsSubmitting(false);
+    }
+    
+   
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-1">
       {/* Contact Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,26 +95,26 @@ const Contact = () => {
                   {
                     icon: Phone,
                     title: 'Phone',
-                    details: '+1 (555) 123-4567',
+                    details: '+94 72 5858799',
                     description: 'Mon-Fri 9AM-6PM EST'
                   },
                   {
                     icon: Mail,
                     title: 'Email',
-                    details: 'info@primeproduction.com',
-                    description: 'We respond within 24 hours'
+                    details: 'primexstudio2025@gmail.com',
+                    description: 'We respond within 6 hours'
                   },
                   {
                     icon: MapPin,
                     title: 'Office',
-                    details: '123 Creative Street, Suite 100',
-                    description: 'New York, NY 10001'
+                    details: 'Yakkala,Gampaha',
+                    description: 'Sri Lanka'
                   },
                   {
                     icon: Clock,
                     title: 'Business Hours',
                     details: 'Monday - Friday: 9AM - 6PM',
-                    description: 'Saturday: 10AM - 4PM'
+                    description: 'Saturday|Sunday: 10AM - 4PM'
                   }
                 ].map((contact, index) => (
                   <motion.div
@@ -205,10 +225,10 @@ const Contact = () => {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
+                    name="projectDetails"
                     required
                     rows={5}
-                    value={formData.message}
+                    value={formData.projectDetails}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all resize-vertical"
                     placeholder="Tell us about your project, timeline, and any specific requirements..."
@@ -263,7 +283,7 @@ const Contact = () => {
               <div className="text-center">
                 <MapPin className="h-12 w-12 text-red-600 mx-auto mb-4" />
                 <p className="text-gray-600">Interactive Map Coming Soon</p>
-                <p className="text-sm text-gray-500">123 Creative Street, Suite 100, New York, NY 10001</p>
+                <p className="text-sm text-gray-500">Gampaha Sri Lanka</p>
               </div>
             </div>
           </div>
