@@ -347,7 +347,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
                     </div>
                   </div>
 
-                  <ul className="space-y-3 xl:mb-14 mb-2 md:mb-2 md:h-72 xl:h-96 2xl:h-80 ">
+                  <ul className="space-y-3 xl:mb-14 mb-2 md:mb-2 lg:mb-4 md:h-72 lg:h-80 xl:h-96 2xl:h-80 ">
                     {pkg.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center space-x-3 ">
                         <div className="w-2 h-2 bg-red-600 rounded-full" />
@@ -356,7 +356,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
                     ))}
                   </ul>
 
-                  <div className='text-center text-md text-black font-semibold mt-8 mb-8 md:mb-3 md:h-24 xl:h-40 2xl:h-32'>{pkg.uses}</div>
+                  <div className='text-center text-md text-black font-semibold mt-8 mb-8 md:mb-3 md:h-24 xl:h-44 2xl:h-32 '>{pkg.uses}</div>
                   <Link to="/contact">
                   <button className={`w-full py-3 rounded-lg font-semibold transition-colors  ${
                     pkg.popular === "popular" 

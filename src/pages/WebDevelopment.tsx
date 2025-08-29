@@ -84,7 +84,7 @@ const WebDevelopment = () => {
         
       ],
       popular: "popular",
-      uses:"Ideal for vibrant online stores, dynamic service providers, and businesses focused on engaging customer experiences."
+      uses:"Perfect for vibrant online stores, dynamic services, and customer-focused modern businesses."
     },
     {
       name: 'Prime Apexium',
@@ -273,7 +273,7 @@ const WebDevelopment = () => {
                     </div>
                   </div>
 
-                  <ul className="space-y-3 xl:mb-14 mb-2 md:mb-2 md:h-72 xl:h-96 2xl:h-80 ">
+                  <ul className="space-y-3 xl:mb-14 mb-2 md:mb-2 md:h-80 xl:h-80 2xl:h-80 ">
                     {pkg.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center space-x-3 ">
                         <div className="w-2 h-2 bg-red-600 rounded-full" />
@@ -282,7 +282,7 @@ const WebDevelopment = () => {
                     ))}
                   </ul>
 
-                  <div className='text-center text-md text-black font-semibold mt-8 mb-8 md:mb-3 md:h-24 xl:h-40 2xl:h-32'>{pkg.uses}</div>
+                  <div className='text-center text-md text-black font-semibold md:mb-3 lg:mb-0  md:h-24 xl:h-40 2xl:h-32 mb-4 mt-2'>{pkg.uses}</div>
                   <Link to="/contact">
                   <button className={`w-full py-3 rounded-lg font-semibold transition-colors  ${
                     pkg.popular === "popular" 
@@ -329,7 +329,7 @@ const WebDevelopment = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow "
                 
               >
                 <img
@@ -339,7 +339,7 @@ const WebDevelopment = () => {
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <p className="text-gray-600 mb-4 h-16 ">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, idx) => (
                       <span
