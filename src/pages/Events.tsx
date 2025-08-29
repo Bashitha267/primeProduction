@@ -271,8 +271,8 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            {packages.map((pkg, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+           {packages.map((pkg, index) => {
               // Calculate discount and new price
               // const originalPriceNum = parsePrice(pkg.price);
               // const discountAmount = 4500; // fixed discount between 4000-5000
@@ -325,7 +325,7 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
                     </div>
                   )}
                   <div className="text-center mb-8">
-                    <h3 className="text-4xl font-bold text-gray-900 mb-4 ">
+                    <h3 className="text-3xl font-bold text-gray-900 mb-4 ">
                       {pkg.name.slice(0,5)}
                       <span style={{color:`${pkg.color}`}}>{pkg.name.slice(5)}</span>
                     </h3>
@@ -337,17 +337,17 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
                       
                     }`}>
                       {/* Original price struck through */}
-                      <span className="  text-red-500">
+                      {/* <span className="line-through  text-gray-400">
+                        Rs {pkg.price}
+                      </span> */}
+                      {/* Discounted price highlighted */}
+                      <span className="text-red-600 font-bold">
                         Rs {pkg.price}
                       </span>
-                      {/* Discounted price highlighted */}
-                      {/* <span className="text-red-600 font-bold">
-                        Rs {formatPrice(discountedPriceNum)}
-                      </span> */}
                     </div>
                   </div>
 
-                  <ul className="space-y-3 mb-10 h-80 max-h-80 ">
+                  <ul className="space-y-3 xl:mb-14 mb-2 md:mb-2 md:h-72 xl:h-96 2xl:h-80 ">
                     {pkg.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center space-x-3 ">
                         <div className="w-2 h-2 bg-red-600 rounded-full" />
@@ -356,9 +356,9 @@ const [selectedGallery, setSelectedGallery] = useState<string | null>(null);
                     ))}
                   </ul>
 
-                  <div className='text-center text-md text-black  mt-8 mb-4'>{pkg.uses}</div>
+                  <div className='text-center text-md text-black font-semibold mt-8 mb-8 md:mb-3 md:h-24 xl:h-40 2xl:h-32'>{pkg.uses}</div>
                   <Link to="/contact">
-                  <button className={`w-full py-3 rounded-lg font-semibold transition-colors ${
+                  <button className={`w-full py-3 rounded-lg font-semibold transition-colors  ${
                     pkg.popular === "popular" 
                       ? 'bg-[#B8860B] text-white hover:bg-[#9a7005]' 
                       : pkg.popular === "pro" 

@@ -18,7 +18,7 @@ const About = () => {
   {
     name: 'Tharindu Malshan',
     role: 'Head of Web Design & Development ',
-    image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://res.cloudinary.com/dnfbik3if/image/upload/v1755056964/WhatsApp_Image_2025-08-12_at_21.08.34_40474333_rvsdbh.jpg',
     bio: 'Undergraduate in Engineering NDT Moratuwa'
   },
   {

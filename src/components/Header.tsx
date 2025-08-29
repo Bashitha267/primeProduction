@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Camera } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,13 +20,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="bg-red-600 p-2 rounded-lg">
-              <Camera className="h-8 w-8 text-white" />
+            <div className="  rounded-lg">
+             <img src='https://res.cloudinary.com/dnfbik3if/image/upload/v1756445488/logo_ir0qxk.png' className='h-16 w-32 object-contain'></img>
             </div>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Prime Production</h1>
-              <p className="text-sm text-gray-600">Creative Solutions</p>
-            </div>
+            {/* <div>
+              <h1 className="text-2xl font-bold text-gray-900">PrimeX Studio</h1>
+              <p className="text-sm text-gray-600">Create Capture Code</p>
+            </div> */}
           </Link>
 
           {/* Desktop Navigation */}
